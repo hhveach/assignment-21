@@ -9,7 +9,6 @@ const ListingView = Backbone.View.extend({
       let shop = data.get('Shop');
       return         `<div class="header">
                         <h2 class="logo"><a href="#">Etsy</a></h2>
-                        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                       </div>
                       <hr/>
                       <div class="nav-bar">
@@ -20,6 +19,8 @@ const ListingView = Backbone.View.extend({
                         <span class="listing" data-ctg="weddings">Weddings</span>
                         <span class="listing" data-ctg="housewares">Housewares</span>
                         <span class="listing" data-ctg="vintage">Vintage</span>
+                        <input type="text" placeholder="Search Etsy"/>
+                        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                       </div>
                       <hr/>
                       <div class="main-content column-container">

@@ -4,15 +4,15 @@ body{margin: auto;}
 
 img {display: block; width: 100%;}
 
+input:focus {outline: none;}
+
 .column-container > * {
 	display: inline-block;
 	font-size: 0;
 	vertical-align: top;
 }
 
-.header {
-	width: 100%;
-}
+.header {width: 100%;}
 
 .logo {
 	font-family: Palatino;
@@ -36,18 +36,20 @@ img {display: block; width: 100%;}
 	right: 5px;
 }
 
-.nav-bar {
-	width: 100%;
-}
+.nav-bar {width: 100%;}
 
 .nav-bar span {
 	width: 12%;
 	color: grey;
 }
 
-.listing {
-	padding: 20px 10px;
+.nav-bar input {
+	padding: 5px;
+	color: grey;
+	width: 15%;
 }
+
+.listing {padding: 20px 10px;}
 
 .main-content {
 	width: 80%;
@@ -68,6 +70,6 @@ img {display: block; width: 100%;}
 	color: #78c042;
 }
 
-.thumbnail p, h6 {
-	padding-left: 10px;
-}
+.thumbnail p, h6 {padding-left: 10px;}
+
+.thumbnail h6 {text-overflow: ellipsis; overflow: hidden; white-space: nowrap;}

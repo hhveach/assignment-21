@@ -4,6 +4,8 @@ import {SingleModel, MultiCollection} from './models.js';
 import HomeView from './homeview.js';
 import ListingView from './listing.js';
 import CategoryView from './category.js';
+import SearchView from './search.js';
+
 
 const AppRouter = Backbone.Router.extend({
   initialize: function(){
@@ -13,6 +15,7 @@ const AppRouter = Backbone.Router.extend({
 
   routes: {
     'category/:cat' : 'categoryChange',
+    'search/:key' : 'searchKey',
     'listing/:id' : 'listingId',
     '' : 'homePage'
   },
@@ -43,6 +46,16 @@ const AppRouter = Backbone.Router.extend({
       let view = new HomeView();
       view.render(results);
     })
+  },
+
+  searchKey: function(key){
+    let search = new MultiCollection(key);
+    search.fetch().then(function(serverRes){
+      console.log(search.models);
+      let results = search.models;
+      let view = new SearchView;
+      view.render(results);
+    });
   }
 })
 

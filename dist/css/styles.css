@@ -8,6 +8,9 @@ img {
   display: block;
   width: 100%; }
 
+input:focus {
+  outline: none; }
+
 .column-container > * {
   display: inline-block;
   font-size: 0;
@@ -42,6 +45,11 @@ img {
   width: 12%;
   color: grey; }
 
+.nav-bar input {
+  padding: 5px;
+  color: grey;
+  width: 15%; }
+
 .listing {
   padding: 20px 10px; }
 
@@ -63,5 +71,10 @@ img {
 
 .thumbnail p, h6 {
   padding-left: 10px; }
+
+.thumbnail h6 {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap; }
 
 /*# sourceMappingURL=styles.css.map*/

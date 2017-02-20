@@ -1,35 +1,19 @@
 import Backbone from 'backbone';
 
-const HomeView = Backbone.View.extend({
+const SearchView = Backbone.View.extend({
   el: '#app-container',
 
-  events: {
-    'click .thumbnail' : 'clickedItem',
-    'click .listing' : 'clickedCategory',
-    'keydown input' : 'submitted'
-  },
+  // events: {
+  //   'submit input' : 'submitted',
+  // },
+  //
+  // submitted: function(evt){
+  //   console.log(evt.target);
+  //
+  // },
 
-  submitted: function(evt){
-    let current = evt.target;
-    if(evt.keyCode === 13){
-      window.location.hash = `search/${current.value}`;
-    };
-  },
-
-  clickedItem: function(evt){
-    console.log(evt.currentTarget.dataset.tax)
-    let current = evt.currentTarget.dataset.id;
-    window.location.hash = `listing/${current}`;
-  },
-
-  clickedCategory  : function(evt){
-    let current = evt.currentTarget.dataset.ctg;
-    console.log(current)
-    window.location.hash = `category/${current}`;
-  },
-
-  insertContent : function(data){
-    console.log(data)
+  insertContent: function(data){
+    console.log(data);
     let finalStr = `<div class="header">
                       <h2 class="logo"><a href="#">Etsy</a></h2>
                     </div>
@@ -63,6 +47,6 @@ const HomeView = Backbone.View.extend({
   render: function(data){
     this.el.innerHTML = this.insertContent(data);
   }
-});
+})
 
-export default HomeView;
+export default SearchView;

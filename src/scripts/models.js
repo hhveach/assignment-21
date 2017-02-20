@@ -21,7 +21,11 @@ export const MultiCollection = Backbone.Collection.extend({
 
   url: `https://openapi.etsy.com/v2/listings/active.js?includes=Images,Shop,&api_key=mys8nyjcnzpwarpygfo80jow&callback=?`,
 
-  initialize: function(){},
+  initialize: function(keywords){
+    if(keywords !== undefined){
+      this.url =`https://openapi.etsy.com/v2/listings/active.js?includes=Images,Shop,&api_key=mys8nyjcnzpwarpygfo80jow&keywords=${keywords}&callback=?`;
+    }
+  },
 
   parse: function(rawServerRes){
     return rawServerRes.results;
