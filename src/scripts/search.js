@@ -3,15 +3,6 @@ import Backbone from 'backbone';
 const SearchView = Backbone.View.extend({
   el: '#app-container',
 
-  // events: {
-  //   'submit input' : 'submitted',
-  // },
-  //
-  // submitted: function(evt){
-  //   console.log(evt.target);
-  //
-  // },
-
   insertContent: function(data){
     console.log(data);
     let finalStr = `<div class="header">

@@ -5,10 +5,8 @@ const CategoryView = Backbone.View.extend({
 
   insertContent : function(data){
     console.log(data)
-    let location = window.location.hash.slice(1)
     let finalStr = `<div class="header">
                       <h2 class="logo"><a href="#">Etsy</a></h2>
-                      <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                     </div>
                     <hr/>
                     <div class="nav-bar">
@@ -19,22 +17,20 @@ const CategoryView = Backbone.View.extend({
                       <span class="listing" data-ctg="weddings">Weddings</span>
                       <span class="listing" data-ctg="housewares">Housewares</span>
                       <span class="listing" data-ctg="vintage">Vintage</span>
+                      <input type="text" placeholder="Search Etsy"/>
+                      <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                     </div>
                     <hr/>
                     <div class="main-content column-container">`;
     let content = data.map(function(listEl){
-        let cat = listEl.get('category_path[0]');
         let img = listEl.get('Images');
         let shop = listEl.get('Shop');
-        if(`category/${cat}` === `${location}`){
-
-
       return `<div class="thumbnail" data-id="${listEl.get('listing_id')}">
                <img src="${img[0].url_170x135}"/>
-               <h6>${listEl.title}</h6>
-               <p>${shop.shop_name}<span>${listEl.price}</span></p>
+               <h6>${listEl.get('title')}</h6>
+               <p>${shop.shop_name}<span>$${listEl.get('price')}</span></p>
                </div>`
-            }}).join('');
+            }).join('');
       return finalStr + content + `</div>`;
     },
 

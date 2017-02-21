@@ -8,7 +8,7 @@ img {
   display: block;
   width: 100%; }
 
-input:focus {
+input:focus, button:focus {
   outline: none; }
 
 .column-container > * {
@@ -48,10 +48,15 @@ input:focus {
 .nav-bar input {
   padding: 5px;
   color: grey;
-  width: 15%; }
+  width: 15%;
+  margin-left: 30px; }
 
 .listing {
-  padding: 20px 10px; }
+  padding: 10px 10px; }
+
+.listing:hover {
+  background-color: #ddd;
+  cursor: pointer; }
 
 .main-content {
   width: 80%;
@@ -65,6 +70,9 @@ input:focus {
   border: 1px solid black;
   margin: 10px; }
 
+.thumbnail:hover {
+  cursor: pointer; }
+
 .thumbnail span {
   margin-left: 10px;
   color: #78c042; }
@@ -76,5 +84,57 @@ input:focus {
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap; }
+
+.single-images {
+  width: 55%;
+  font-size: medium;
+  margin-top: 15px; }
+
+.single-images p, h3 {
+  line-height: 1.5;
+  text-align: left; }
+
+.main {
+  margin-bottom: 15px; }
+
+.single-info {
+  width: 40%;
+  margin-left: 15px;
+  font-size: medium;
+  margin-top: 15px;
+  position: relative; }
+
+.single-info p {
+  text-align: left;
+  color: #aaa; }
+
+.title {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  margin-top: 0;
+  margin-bottom: 30px; }
+
+.small-img {
+  display: inline-block;
+  width: 12%;
+  margin: 0 10px; }
+
+.price {
+  text-align: left;
+  margin-right: 0; }
+
+.price button {
+  position: absolute;
+  right: 0;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #000; }
+
+.material {
+  background-color: #bbb;
+  color: black;
+  padding: 5px;
+  margin: 0 5px 5px 5px; }
 
 /*# sourceMappingURL=styles.css.map*/

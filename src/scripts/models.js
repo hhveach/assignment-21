@@ -4,7 +4,7 @@ export const SingleModel = Backbone.Model.extend({
   url: ``,
 
   initialize: function(listid){
-    this.url = `https://openapi.etsy.com/v2/listings/${listid}.js?includes=Images,Shop,&api_key=mys8nyjcnzpwarpygfo80jow&callback=?`;
+    this.url = `https://openapi.etsy.com/v2/listings/${listid}.js?includes=Images,Shop,ShippingInfo,&api_key=mys8nyjcnzpwarpygfo80jow&callback=?`;
   },
 
   parse: function(rawServerRes){
@@ -19,11 +19,12 @@ export const SingleModel = Backbone.Model.extend({
 export const MultiCollection = Backbone.Collection.extend({
   model: SingleModel,
 
-  url: `https://openapi.etsy.com/v2/listings/active.js?includes=Images,Shop,&api_key=mys8nyjcnzpwarpygfo80jow&callback=?`,
+  url: `https://openapi.etsy.com/v2/listings/active.js?includes=Images,Shop,ShippingInfo,&api_key=mys8nyjcnzpwarpygfo80jow&callback=?`,
 
   initialize: function(keywords){
     if(keywords !== undefined){
-      this.url =`https://openapi.etsy.com/v2/listings/active.js?includes=Images,Shop,&api_key=mys8nyjcnzpwarpygfo80jow&keywords=${keywords}&callback=?`;
+      this.url =`https://openapi.etsy.com/v2/listings/active.js?includes=Images,Shop,ShippingInfo,&api_key=mys8nyjcnzpwarpygfo80jow&keywords=${keywords}&callback=?`;
+      console.log(this.url);
     }
   },
 

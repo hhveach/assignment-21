@@ -3,11 +3,20 @@ import Backbone from 'backbone';
 const ListingView = Backbone.View.extend({
   el: '#app-container',
 
+  // events: {
+  //   'click .small-img' : 'imageClick'
+  // },
+  //
+  // imageClick: function(){
+  //
+  // },
+
   insertContent: function(data){
-      console.log(data)
-      let img = data.get('Images');
-      let shop = data.get('Shop');
-      return         `<div class="header">
+    let img = data.get('Images');
+    let shop = data.get('Shop');
+    let ship = data.get('ShippingInfo');
+    let materials = data.get('materials');
+      let finalStr = `<div class="header">
                         <h2 class="logo"><a href="#">Etsy</a></h2>
                       </div>
                       <hr/>
@@ -24,14 +33,43 @@ const ListingView = Backbone.View.extend({
                       </div>
                       <hr/>
                       <div class="main-content column-container">
+                      <div class="single-images"><img class="main" src="${img[0].url_fullxfull}"/>`;
 
 
-               <div class="thumbnail" data-id="${data.get('listing_id')}">
-               <img src="${img[0].url_170x135}"/>
-               <h6>${data.get('title')}</h6>
-               <p>${shop.shop_name}<span>$${data.get('price')}</span></p>
-               </div></div>`;
-    },
+
+      let imgStr = ``;
+      let newStr = img.map(function(listEl){
+        imgStr += `<img class="small-img" src="${listEl.url_75x75}"/>`;
+        return imgStr;
+      });
+
+      let materialsStr = ``;
+      let mstr = materials.map(function(listEl){
+        materialsStr += `<span class="material">${listEl}</span>`;
+        return materialsStr;
+      });
+
+      // let shipStr = ``;
+      // let sstr = materials.map(function(listEl){
+      //   shipStr += `<span>${listEl}</span>`;
+      //   return shpipStr;
+      // });
+
+    return  finalStr + ` ${imgStr}
+                        <h3>Item Details</h3>
+                         <p>${data.get('description')}</p>
+                        </div>
+
+                        <div class="single-info">
+                          <h1 class="title">${data.get('title')}</h1>
+                          <h1 class="price">$${data.get('price')}<button>Ask Questions</button></h1>
+                          <p>Materials</p>
+                          ${materialsStr}
+                          <p>Shipping</p>
+                        </div>
+                        </div>`;
+},
+
 
     render: function(data){
       this.el.innerHTML = this.insertContent(data);

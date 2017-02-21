@@ -35,13 +35,13 @@ const HomeView = Backbone.View.extend({
                     </div>
                     <hr/>
                     <div class="nav-bar">
-                      <span class="listing" data-ctg="accessories" data-tax="">Accessories</span>
-                      <span class="listing" data-ctg="jewelry" data-tax="">Jewelry</span>
-                      <span class="listing" data-ctg="furniture" data-tax="">Furniture</span>
-                      <span class="listing" data-ctg="crafts" data-tax="">Craft Supplies</span>
-                      <span class="listing" data-ctg="weddings" data-tax="">Weddings</span>
-                      <span class="listing" data-ctg="housewares" data-tax="">Housewares</span>
-                      <span class="listing" data-ctg="vintage" data-tax="">Vintage</span>
+                      <span class="listing" data-ctg="accessories">Accessories</span>
+                      <span class="listing" data-ctg="jewelry">Jewelry</span>
+                      <span class="listing" data-ctg="furniture">Furniture</span>
+                      <span class="listing" data-ctg="crafts">Craft Supplies</span>
+                      <span class="listing" data-ctg="weddings">Weddings</span>
+                      <span class="listing" data-ctg="housewares">Housewares</span>
+                      <span class="listing" data-ctg="vintage">Vintage</span>
                       <input type="text" placeholder="Search Etsy"/>
                       <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                     </div>
@@ -50,8 +50,8 @@ const HomeView = Backbone.View.extend({
     let content = data.map(function(listEl){
       let img = listEl.get('Images');
       let shop = listEl.get('Shop');
-      return `
-             <div class="thumbnail" data-id="${listEl.get('listing_id')}" data-tax="${listEl.get('taxonomy_id')}">
+
+    return ` <div class="thumbnail" data-id="${listEl.get('listing_id')}" data-tax="${listEl.get('taxonomy_id')}">
              <img src="${img[0].url_170x135}"/>
              <h6>${listEl.get('title')}</h6>
              <p>${shop.shop_name}<span>$${listEl.get('price')}</span></p>
