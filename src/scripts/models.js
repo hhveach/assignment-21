@@ -8,7 +8,7 @@ export const SingleModel = Backbone.Model.extend({
   },
 
   parse: function(rawServerRes){
-    if(typeof rawServerRes.results !== 'undefined' ){
+    if(rawServerRes.results !== undefined){
       return rawServerRes.results[0];
     } else {
       return rawServerRes;
@@ -22,9 +22,12 @@ export const MultiCollection = Backbone.Collection.extend({
   url: `https://openapi.etsy.com/v2/listings/active.js?includes=Images,Shop,ShippingInfo,&api_key=mys8nyjcnzpwarpygfo80jow&callback=?`,
 
   initialize: function(keywords){
+    if(keywords !== undefined && keywords.indexOf(' ') > -1){
+      let newKey = keywords.replace(/\s/gi, "+");
+      this.url = `https://openapi.etsy.com/v2/listings/active.js?includes=Images,Shop,ShippingInfo,&api_key=mys8nyjcnzpwarpygfo80jow&keywords=${newKey}&callback=?`;
+    }
     if(keywords !== undefined){
       this.url =`https://openapi.etsy.com/v2/listings/active.js?includes=Images,Shop,ShippingInfo,&api_key=mys8nyjcnzpwarpygfo80jow&keywords=${keywords}&callback=?`;
-      console.log(this.url);
     }
   },
 

@@ -17,7 +17,7 @@ const CategoryView = Backbone.View.extend({
                       <span class="listing" data-ctg="weddings">Weddings</span>
                       <span class="listing" data-ctg="housewares">Housewares</span>
                       <span class="listing" data-ctg="vintage">Vintage</span>
-                      <input type="text" placeholder="Search Etsy"/>
+                      <input type="text" placeholder="What are you shopping for?"/>
                       <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                     </div>
                     <hr/>

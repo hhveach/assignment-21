@@ -10,7 +10,6 @@ import SearchView from './search.js';
 const AppRouter = Backbone.Router.extend({
   initialize: function(){
     Backbone.history.start();
-    console.log('wired')
   },
 
   routes: {
@@ -21,13 +20,11 @@ const AppRouter = Backbone.Router.extend({
   },
 
   categoryChange: function(cat){
-    let location = window.location.hash.slice()
-    console.log(location)
     let change = new MultiCollection(cat);
     change.fetch().then(function(serverRes){
-      let results = change.models;
+      // let results = change.models;
       let view = new CategoryView();
-      view.render(results);
+      view.render(change);
     });
   },
 
@@ -42,21 +39,20 @@ const AppRouter = Backbone.Router.extend({
   homePage: function(){
     let home = new MultiCollection();
     home.fetch().then(function(serverRes){
-      let results = home.models;
+      // let results = home.models;
       let view = new HomeView();
-      view.render(results);
+      view.render(home);
     })
   },
 
   searchKey: function(key){
     let search = new MultiCollection(key);
     search.fetch().then(function(serverRes){
-      console.log(search.models);
-      let results = search.models;
+      // let results = search.models;
       let view = new SearchView;
-      view.render(results);
+      view.render(search);
     });
   }
-})
+});
 
 const SickApp = new AppRouter();

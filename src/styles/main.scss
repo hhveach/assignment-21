@@ -30,25 +30,28 @@ input:focus, button:focus {outline: none;}
 	font-weight: 200;
 }
 
-.fa {
-	font-size: 20px;
+.fa-shopping-cart {
+	font-size: 28px;
 	text-align: right;
 	position: absolute;
-	right: 5px;
+	right: 1%;
 }
 
-.nav-bar {width: 100%;}
+.nav-bar {
+	width: 100%;
+}
 
 .nav-bar span {
 	width: 12%;
 	color: grey;
+	padding: 5px 10px;
 }
 
 .nav-bar input {
-	padding: 5px;
+	padding: 8px;
 	color: grey;
-	width: 15%;
-	margin-left: 30px;
+	width: 20%;
+	margin-left: 470px;
 }
 
 .listing {padding: 10px 10px;}
@@ -70,6 +73,7 @@ input:focus, button:focus {outline: none;}
 	width: 25%;
 	border: 1px solid black;
 	margin: 10px;
+	position: relative;
 }
 
 .thumbnail:hover {cursor: pointer;}
@@ -77,6 +81,8 @@ input:focus, button:focus {outline: none;}
 .thumbnail span{
 	margin-left: 10px;
 	color: #78c042;
+	position: absolute;
+	right: 8px;
 }
 
 .thumbnail p, h6 {padding-left: 10px;}
@@ -85,6 +91,7 @@ input:focus, button:focus {outline: none;}
 	text-overflow: ellipsis;
 	overflow: hidden;
 	white-space: nowrap;
+	font-size: 16px;
 }
 
 .single-images {
@@ -110,7 +117,17 @@ input:focus, button:focus {outline: none;}
 
 .single-info p {
 	text-align: left;
-	color: #aaa;
+	line-height: 1.5;
+}
+
+.grey {
+	color: grey;
+	font-size: 20px;
+}
+
+.item-info {
+	font-size: 20px;
+	color: black;
 }
 
 .title {
