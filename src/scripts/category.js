@@ -3,8 +3,30 @@ import Backbone from 'backbone';
 const CategoryView = Backbone.View.extend({
   el: '#app-container',
 
+  events: {
+    'click .thumbnail' : 'clickedItem',
+    'click .listing' : 'clickedCategory',
+    'keydown input' : 'inputSubmit'
+  },
+
+  inputSubmit: function(evt){
+    let current = evt.target;
+    if(evt.keyCode === 13){
+      window.location.hash = `search/${current.value}`;
+    };
+  },
+
+  clickedItem: function(evt){
+    let current = evt.currentTarget.dataset.id;
+    window.location.hash = `listing/${current}`;
+  },
+
+  clickedCategory  : function(evt){
+    let current = evt.currentTarget.dataset.ctg;
+    window.location.hash = `category/${current}`;
+  },
+
   insertContent : function(data){
-    console.log(data)
     let finalStr = `<div class="header">
                       <h2 class="logo"><a href="#">Etsy</a></h2>
                     </div>

@@ -100,9 +100,18 @@ input:focus, button:focus {outline: none;}
 	margin-top: 15px;
 }
 
-.single-images p, h3 {
+.single-images p, h3, h5 {
 	line-height: 1.5;
 	text-align: left;
+}
+
+.single-images h3 {
+	font-size: 24px;
+}
+
+.single-images h5 {
+	margin-bottom: 5px;
+	font-size: 18px;
 }
 
 .main {margin-bottom: 15px;}
@@ -138,6 +147,8 @@ input:focus, button:focus {outline: none;}
 	margin-bottom: 30px;
 }
 
+.long-title {margin-top: 0;}
+
 .small-img {
 	display: inline-block;
 	width: 12%;
@@ -162,4 +173,5 @@ input:focus, button:focus {outline: none;}
 	color: black;
 	padding: 5px;
 	margin: 0 5px 5px 5px;
+	display: inline-block;
 }

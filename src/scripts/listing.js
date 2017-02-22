@@ -3,11 +3,34 @@ import Backbone from 'backbone';
 const ListingView = Backbone.View.extend({
   el: '#app-container',
 
+  events: {
+    'click .thumbnail' : 'clickedItem',
+    'click .listing' : 'clickedCategory',
+    'keydown input' : 'inputSubmit'
+  },
+
+  inputSubmit: function(evt){
+    let current = evt.target;
+    if(evt.keyCode === 13){
+      window.location.hash = `search/${current.value}`;
+    };
+  },
+
+  clickedItem: function(evt){
+    let current = evt.currentTarget.dataset.id;
+    window.location.hash = `listing/${current}`;
+  },
+
+  clickedCategory  : function(evt){
+    let current = evt.currentTarget.dataset.ctg;
+    window.location.hash = `category/${current}`;
+  },
+
   insertContent: function(data){
     let img = data.get('Images');
     let shop = data.get('Shop');
     let materials = data.get('materials');
-      let finalStr = `<div class="header">
+    let finalStr =   `<div class="header">
                         <h2 class="logo"><a href="#">Etsy</a></h2>
                       </div>
                       <hr/>
@@ -34,24 +57,28 @@ const ListingView = Backbone.View.extend({
 
       let materialsStr = ``;
       let mstr = materials.map(function(listEl){
-        materialsStr += `<span class="material">${listEl}</span>`;
+        materialsStr += `<p class="material">${listEl}</p>`;
         return materialsStr;
       });
-
+      
     return  finalStr + ` ${imgStr}
-                        <h3>Shipping Information</h3>
+                        <h3>Seller Policies</h3>
+                        <h5>Payment</h5>
                         <p>${shop.policy_payment}</p>
+                        <h5>Shipping</h5>
                         <p>${shop.policy_shipping}</p>
+                        <h5>Refunds</h5>
                         <p>${shop.policy_refunds}</p>
+                        <h5>Additional Information</h5>
                         <p>${shop.policy_additional}</p>
                         </div>
 
                         <div class="single-info">
-                          <h1 class="title">${data.get('title')}</h1>
+                          <h1 class="long-title">${data.get('title')}</h1>
                           <h1 class="price">$${data.get('price')}<button>Ask Questions</button></h1>
                           <p class="grey">Materials</p>
                           ${materialsStr}
-                          <p class="item-info">Item Information</p>
+                          <p class="item-info">Item Description</p>
                           <p>${data.get('description')}</p>
                         </div>
                         </div>`;

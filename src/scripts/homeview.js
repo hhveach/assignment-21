@@ -27,7 +27,6 @@ const HomeView = Backbone.View.extend({
   },
 
   insertContent : function(data){
-    console.log(data)
     let finalStr = `<div class="header">
                       <h2 class="logo"><a href="#">Etsy</a></h2>
                     </div>
