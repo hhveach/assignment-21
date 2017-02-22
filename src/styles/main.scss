@@ -147,7 +147,10 @@ input:focus, button:focus {outline: none;}
 	margin-bottom: 30px;
 }
 
-.long-title {margin-top: 0;}
+.long-title {
+	margin-top: 0;
+	text-align: left;
+}
 
 .small-img {
 	display: inline-block;

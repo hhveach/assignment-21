@@ -136,7 +136,8 @@ input:focus, button:focus {
   margin-bottom: 30px; }
 
 .long-title {
-  margin-top: 0; }
+  margin-top: 0;
+  text-align: left; }
 
 .small-img {
   display: inline-block;
