@@ -22,7 +22,6 @@ const AppRouter = Backbone.Router.extend({
   categoryChange: function(cat){
     let change = new MultiCollection(cat);
     change.fetch().then(function(serverRes){
-      // let results = change.models;
       let view = new CategoryView();
       view.render(change);
     });
@@ -39,7 +38,6 @@ const AppRouter = Backbone.Router.extend({
   homePage: function(){
     let home = new MultiCollection();
     home.fetch().then(function(serverRes){
-      // let results = home.models;
       let view = new HomeView();
       view.render(home);
     })
@@ -48,7 +46,6 @@ const AppRouter = Backbone.Router.extend({
   searchKey: function(key){
     let search = new MultiCollection(key);
     search.fetch().then(function(serverRes){
-      // let results = search.models;
       let view = new SearchView;
       view.render(search);
     });

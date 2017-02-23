@@ -5,9 +5,29 @@ const ListingView = Backbone.View.extend({
 
   events: {
     'click .thumbnail' : 'clickedItem',
+    'keydown input' : 'inputSubmit',
     'click .listing' : 'clickedCategory',
-    'keydown input' : 'inputSubmit'
+    'click button' : 'arrowDown'
   },
+
+  // arrowDown: function(evt){
+  //   let current = evt.currentTarget.className;
+  //   if(current === 'left'){
+  //     console.log('the left one');
+  //     // window.location.hash = `listing/${}`;
+  //
+  //   };
+  //   if(current === 'right'){
+  //     console.log('the right one');
+  //     // window.location.hash = `listing/${}`;
+  //   };
+  //
+  // },
+
+    clickedCategory  : function(evt){
+      let current = evt.currentTarget.dataset.ctg;
+      window.location.hash = `category/${current}`;
+    },
 
   inputSubmit: function(evt){
     let current = evt.target;
@@ -19,11 +39,6 @@ const ListingView = Backbone.View.extend({
   clickedItem: function(evt){
     let current = evt.currentTarget.dataset.id;
     window.location.hash = `listing/${current}`;
-  },
-
-  clickedCategory  : function(evt){
-    let current = evt.currentTarget.dataset.ctg;
-    window.location.hash = `category/${current}`;
   },
 
   insertContent: function(data){
@@ -60,7 +75,7 @@ const ListingView = Backbone.View.extend({
         materialsStr += `<p class="material">${listEl}</p>`;
         return materialsStr;
       });
-      
+
     return  finalStr + ` ${imgStr}
                         <h3>Seller Policies</h3>
                         <h5>Payment</h5>
@@ -78,8 +93,10 @@ const ListingView = Backbone.View.extend({
                           <h1 class="price">$${data.get('price')}<button>Ask Questions</button></h1>
                           <p class="grey">Materials</p>
                           ${materialsStr}
+                          <div class="item-bg">
                           <p class="item-info">Item Description</p>
                           <p>${data.get('description')}</p>
+                        </div>
                         </div>
                         </div>`;
 },
@@ -91,3 +108,6 @@ const ListingView = Backbone.View.extend({
 });
 
 export default ListingView;
+
+// <button class="left"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
+// <button class="right"><i class="fa fa-arrow-right" aria-hidden="true"></i></button>
